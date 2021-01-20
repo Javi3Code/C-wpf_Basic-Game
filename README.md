@@ -1,2 +1,11 @@
 # C-wpf_Basic-Game
-A game in C #, includes questions, tic-tac-toe and rock paper or scissors.  Made by entering this language.
+
+*Con este juego me inicié en C#*
+
+# Tecnologías
+
+- C# wpf
+
+# Jugar
+
+- Usuario/Contraseña del login 752B
