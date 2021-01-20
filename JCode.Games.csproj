@@ -1,0 +1,47 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Rfirstgame\fond.png" />
+    <None Remove="Rfirstgame\loser.png" />
+    <None Remove="Rfirstgame\papel.png" />
+    <None Remove="Rfirstgame\papelR.png" />
+    <None Remove="Rfirstgame\piedra.png" />
+    <None Remove="Rfirstgame\piedraR.png" />
+    <None Remove="Rfirstgame\tijera.png" />
+    <None Remove="Rfirstgame\tijeraR.png" />
+    <None Remove="Rprincipal\close.png" />
+    <None Remove="Rprincipal\info.png" />
+    <None Remove="Rprincipal\loginImage.png" />
+    <None Remove="Rsecondgame\circle.png" />
+    <None Remove="Rsecondgame\clean.png" />
+    <None Remove="Rsecondgame\cruise.png" />
+    <None Remove="Rsecondgame\nok.png" />
+    <None Remove="Rsecondgame\ok.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Rfirstgame\fond.png" />
+    <Resource Include="Rfirstgame\loser.png" />
+    <Resource Include="Rfirstgame\papel.png" />
+    <Resource Include="Rfirstgame\papelR.png" />
+    <Resource Include="Rfirstgame\piedra.png" />
+    <Resource Include="Rfirstgame\piedraR.png" />
+    <Resource Include="Rfirstgame\tijera.png" />
+    <Resource Include="Rfirstgame\tijeraR.png" />
+    <Resource Include="Rprincipal\close.png" />
+    <Resource Include="Rprincipal\info.png" />
+    <Resource Include="Rprincipal\loginImage.png" />
+    <Resource Include="Rsecondgame\circle.png" />
+    <Resource Include="Rsecondgame\clean.png" />
+    <Resource Include="Rsecondgame\cruise.png" />
+    <Resource Include="Rsecondgame\nok.png" />
+    <Resource Include="Rsecondgame\ok.png" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,219 @@
+﻿<Window x:Class="JCode.Games.QuestionsGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JCode.Games"
+        mc:Ignorable="d"
+        Title="DYNAMIC GAM--Jey::Code.Designs" Height="800" Width="1100"
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="btnStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="LightGray"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="LightGray"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Border  BorderBrush="LightGray"  BorderThickness="10,10,10,10"/>
+        <Border  BorderBrush="#FF919FD6"  BorderThickness="6,6,6,6"/>
+        <Border  BorderBrush="#FF293873"  BorderThickness="3,3,3,3" Margin="228,10,10,10">
+            <Button Style="{DynamicResource btnStyle}" IsDefault="True" x:Name="btnValidate" Content="VALIDATE" MouseEnter="BtnEnterEffect" MouseLeave="BtnResetProps" Cursor="Hand" HorizontalAlignment="Left" Margin="333,658,0,10" Width="509" Background="AntiqueWhite" FontFamily="Bahnschrift SemiBold" FontSize="60" Click="ValidateAndGetNote">
+                <Button.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF6D7978" Offset="0.395"/>
+                        <GradientStop Color="#FF3E4343" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.Foreground>
+            </Button>
+        </Border>
+        <Border  BorderBrush="LightGray"  BorderThickness="10,10,10,10" Margin="550,10,398,726" RenderTransformOrigin="0.518,0.578">
+            <Border  BorderBrush="#FF919FD6"  BorderThickness="6,6,6,6">
+                <Label x:Name="lblComTitle" Content="Comodines" FontSize="22" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="White"  Background="#FF919FD6" Height="44" Margin="-2,0,-2,0"/>
+            </Border>
+        </Border>
+        <Border  BorderBrush="LightGray"  BorderThickness="10,10,10,10" Margin="702,10,323,726" RenderTransformOrigin="0.518,0.578">
+            <Border  BorderBrush="#FF919FD6"  BorderThickness="6,6,6,6">
+                <Label x:Name="lblComodinesCount" Content="3" FontSize="25"  HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="White"  Background="#FF919FD6" Margin="-2,-6,-1,-1" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.000"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+            </Border>
+        </Border>
+        <Border  BorderBrush="LightGray"  BorderThickness="10,10,10,10" Margin="778,10,170,726" RenderTransformOrigin="0.518,0.578">
+            <Border  BorderBrush="#FF919FD6"  BorderThickness="6,6,6,6">
+                <Label x:Name="lblNoteTitle" Content="Nota" FontSize="22" VerticalAlignment="Center" HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="White"  Background="#FF919FD6" Height="44" Margin="-2,0,-2,0"/>
+            </Border>
+        </Border>
+        <Border  BorderBrush="LightGray"  BorderThickness="10,10,10,10" Margin="930,10,95,726" RenderTransformOrigin="0.518,0.578">
+            <Border  BorderBrush="#FF919FD6"  BorderThickness="6,6,6,6">
+                <Label x:Name="lblNote" Content="0" FontSize="25"  HorizontalContentAlignment="Center" VerticalContentAlignment="Top" Foreground="White"  Background="#FF919FD6" Margin="-2,-6,-1,-1" RenderTransformOrigin="0.5,0.5">
+                    <Label.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0.000"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </Label.RenderTransform>
+                </Label>
+            </Border>
+        </Border>
+        <Grid Margin="0,0,550,0" Background="#FF919FD6">
+            <Grid Margin="0,0,0,694">
+                <Label x:Name="questionOne" Content="1.¿Quién escribió la Iliada?" HorizontalAlignment="Left" Margin="27,28,0,0" VerticalAlignment="Top" Height="32" Width="187" FontSize="20" FontFamily="Bahnschrift SemiBold Condensed"/>
+                <RadioButton x:Name="rdb11" Content="Cicerón" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,34,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" />
+                <RadioButton x:Name="rdb12" Content="Homero" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,50,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand"/>
+                <RadioButton x:Name="rdb13" Content="Rasputin" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,66,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand"/>
+                <Button x:Name="btnComodin1" Content="Comodin" Cursor="Hand" Click="InitComodinGame" HorizontalAlignment="Left" Height="23" Margin="27,78,0,0" VerticalAlignment="Top" Width="187" FontSize="14"/>
+            </Grid>
+            <Grid Margin="0,111,0,592">
+                <Label x:Name="questionTwo" Content="2.¿Autor del Arte de la Guerra?" HorizontalAlignment="Left" Margin="27,18,0,0" VerticalAlignment="Top" Height="32" Width="215" FontSize="20" FontFamily="Bahnschrift SemiBold Condensed"/>
+                <RadioButton x:Name="rdb21" Content="Xin Xon Xun" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,24,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb22" Content="Sun Tzu" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,40,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb23" Content="Shin Tan" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,56,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <Button x:Name="btnComodin2" Content="Comodin" Cursor="Hand" Click="InitComodinGame" HorizontalAlignment="Left" Height="23" Margin="27,68,0,0" VerticalAlignment="Top" Width="187" FontSize="14" Grid.Row="1"/>
+            </Grid>
+            <Grid Margin="0,222,0,481">
+                <Label x:Name="questionThree" Content="3.¿Autor de 'Utopía'?" HorizontalAlignment="Left" Margin="27,18,0,0" VerticalAlignment="Top" Height="32" Width="145" FontSize="20" FontFamily="Bahnschrift SemiBold Condensed"/>
+                <RadioButton x:Name="rdb31" Content="Pedro Sanchez" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,24,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb32" Content="Tomás Moro" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,40,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb33" Content="Santo Tomás de Aquino" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,56,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <Button x:Name="btnComodin3" Content="Comodin" Cursor="Hand" Click="InitComodinGame" HorizontalAlignment="Left" Height="23" Margin="27,68,0,0" VerticalAlignment="Top" Width="187" FontSize="14" Grid.Row="1"/>
+            </Grid>
+            <Grid Margin="0,333,0,370">
+                <Label x:Name="questionFour" Content="4.¿Autor de 'Moby Dick'?" HorizontalAlignment="Left" Margin="27,18,0,0" VerticalAlignment="Top" Height="32" Width="168" FontSize="20" FontFamily="Bahnschrift SemiBold Condensed"/>
+                <RadioButton x:Name="rdb41" Content="Charles Dickens" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,24,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb42" Content="Ritz McHaggen" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,40,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb43" Content="Herman Melville" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,56,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <Button x:Name="btnComodin4" Content="Comodin" Cursor="Hand" Click="InitComodinGame" HorizontalAlignment="Left" Height="23" Margin="27,68,0,0" VerticalAlignment="Top" Width="187" FontSize="14" Grid.Row="1"/>
+            </Grid>
+            <Grid Margin="0,444,0,259">
+                <Label x:Name="questionFive" Content="5.¿En que siglo nació Miguel de Cervantes?" HorizontalAlignment="Left" Margin="27,18,0,0" VerticalAlignment="Top" Height="32" Width="302" FontSize="20" FontFamily="Bahnschrift SemiBold Condensed"/>
+                <RadioButton x:Name="rdb51" Content="Siglo XVI" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,24,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb52" Content="Siglo XV" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,40,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb53" Content="Siglo XIV" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,56,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <Button x:Name="btnComodin5" Content="Comodin" Cursor="Hand" Click="InitComodinGame" HorizontalAlignment="Left" Height="23" Margin="27,68,0,0" VerticalAlignment="Top" Width="187" FontSize="14" Grid.Row="1"/>
+            </Grid>
+            <Grid Margin="0,555,0,148">
+                <Label x:Name="questionSix" Content="6.¿Cuál de estos NO fue miembro&#10; de la llamada generación del 98?" HorizontalAlignment="Left" Margin="27,12,0,0" VerticalAlignment="Top" Height="62" Width="290" FontSize="20" FontFamily="Bahnschrift SemiBold Condensed"/>
+                <RadioButton x:Name="rdb61" Content="Miguel de Unamuno" Click="Rdb_Checked"  HorizontalAlignment="Left" Margin="388,24,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb62" Content="Ortega y Gasset" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,40,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb63" Content="Pio Baroja" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,56,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <Button x:Name="btnComodin6" Content="Comodin" Cursor="Hand" Click="InitComodinGame" HorizontalAlignment="Left" Height="23" Margin="27,68,0,0" VerticalAlignment="Top" Width="187" FontSize="14" Grid.Row="1"/>
+            </Grid>
+            <Grid Margin="0,666,0,37">
+                <Label x:Name="questionSeven" Content="7.¿Autor de 'El Principito'?" HorizontalAlignment="Left" Margin="27,18,0,0" VerticalAlignment="Top" Height="32" Width="302" FontSize="20" FontFamily="Bahnschrift SemiBold Condensed"/>
+                <RadioButton x:Name="rdb71" Content="Patrick Vieira" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,24,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb72" Content="Antoine de Saint-Exupéry" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,40,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <RadioButton x:Name="rdb73" Content="Romain Bardet" Click="Rdb_Checked" HorizontalAlignment="Left" Margin="388,56,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="16" Cursor="Hand" Grid.Row="1"/>
+                <Button x:Name="btnComodin7" Content="Comodin" Cursor="Hand" Click="InitComodinGame" HorizontalAlignment="Left" Height="23" Margin="27,68,0,0" VerticalAlignment="Top" Width="187" FontSize="14" Grid.Row="1"/>
+            </Grid>
+        </Grid>
+        <Button Style="{DynamicResource btnStyle}" x:Name="lastChance" Content="LAST CHANCE" Click="InitUltimateGame" MouseEnter="BtnEnterEffect" Visibility="Hidden" Background="AntiqueWhite" MouseLeave="BtnResetProps" Cursor="Hand" HorizontalAlignment="Left" Margin="564,84,0,584" Width="508"  FontFamily="Bahnschrift SemiBold" FontSize="60">
+            <Button.Foreground>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF6D7978" Offset="0.395"/>
+                    <GradientStop Color="#FF3E4343" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.Foreground>
+        </Button>
+        <Button x:Name="closeBtn" IsCancel="True" Style="{DynamicResource btnStyle}"   BorderBrush="Transparent" Click="ClosePrincipalWindow"  Background="Transparent"  Height="69" Margin="1005,10,10,0" VerticalAlignment="Top">
+            <DockPanel Height="67" Width="81">
+                <Image x:Name="lc"   Stretch="UniformToFill"  StretchDirection="Both" Source="Rprincipal/close.png" Cursor="Hand" Width="65" Height="61"/>
+            </DockPanel>
+        </Button>
+        <Grid Margin="555,79,19,135">
+            <Border Background="#FF919FD6" Width="100" Height="100" BorderBrush="#FF293873" Margin="0,0,0,0">
+                <Border.Style>
+                    <Style TargetType="Border">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Duration="0:0:0.400" To="3" Storyboard.TargetProperty="BorderThickness" />
+                                            <DoubleAnimation Duration="0:0:0.300" To="600" Storyboard.TargetProperty="Height" />
+                                            <DoubleAnimation Duration="0:0:0.300" To="500" Storyboard.TargetProperty="Width" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <ThicknessAnimation Duration="0:0:0.250" To="0" Storyboard.TargetProperty="BorderThickness" />
+                                            <DoubleAnimation Duration="0:0:0.150" To="100" Storyboard.TargetProperty="Height" />
+                                            <DoubleAnimation Duration="0:0:0.150" To="100" Storyboard.TargetProperty="Width" />
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Border.Style>
+                <Image Source="Rprincipal/info.png"/>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
