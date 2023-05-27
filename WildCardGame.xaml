@@ -1,0 +1,117 @@
+﻿<Window x:Class="JCode.Games.WildCardGame"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:JCode.Games"
+        mc:Ignorable="d"
+        Title="ComodinGame" Height="450" Width="800"  
+        ResizeMode="NoResize"
+        AllowsTransparency="True"
+        Background="Transparent"
+        WindowStyle="None"
+        WindowStartupLocation="CenterScreen"
+        >
+    <Window.Resources>
+        <Style x:Key="FocusVisual">
+            <Setter Property="Control.Template">
+                <Setter.Value>
+                    <ControlTemplate>
+                        <Rectangle Margin="2" StrokeDashArray="1 2" SnapsToDevicePixels="true" StrokeThickness="1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+        <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
+        <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
+        <SolidColorBrush x:Key="Button.MouseOver.Border" Color="#FF3C7FB1"/>
+        <SolidColorBrush x:Key="Button.Pressed.Background" Color="#FFC4E5F6"/>
+        <SolidColorBrush x:Key="Button.Pressed.Border" Color="#FF2C628B"/>
+        <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
+        <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
+        <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+        <Style x:Key="btnStyle" TargetType="{x:Type Button}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
+            <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
+            <Setter Property="BorderBrush" Value="{StaticResource Button.Static.Border}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" Background="{TemplateBinding Background}" BorderThickness="{TemplateBinding BorderThickness}" BorderBrush="{TemplateBinding BorderBrush}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="LightGray"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="LightGray"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="LightGray"/>
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Background" TargetName="border" Value="{StaticResource Button.Disabled.Background}"/>
+                                <Setter Property="BorderBrush" TargetName="border" Value="{StaticResource Button.Disabled.Border}"/>
+                                <Setter Property="TextElement.Foreground" TargetName="contentPresenter" Value="{StaticResource Button.Disabled.Foreground}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Border  BorderBrush="LightGray"  BorderThickness="10,10,10,10" Margin="0,1,528,245"/>
+        <Border  BorderBrush="#FF919FD6"  BorderThickness="6,6,6,6" Margin="10,10,537,255">
+            <Grid x:Name="user" Margin="-1,0,-1,-1" >
+            </Grid>
+        </Border>
+
+        <Border  BorderBrush="LightGray"  BorderThickness="10,10,10,10" Margin="527,1,1,244"/>
+        <Border  BorderBrush="#FF919FD6"  BorderThickness="6,6,6,6" Margin="537,10,10,254">
+            <Grid x:Name="cpu" >
+            </Grid>
+        </Border>
+        <Image Source="Rfirstgame/vs.png" Margin="301,26,321,270"></Image>
+        <Grid Background="#FF919FD6" Margin="0,205,405,0">
+            <RadioButton x:Name="piedra" Content="Piedra" Click="ShowUserSelection"  HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="25
+                         " Cursor="Hand" Width="76" />
+            <RadioButton x:Name="papel" Content="Papel" Click="ShowUserSelection"  HorizontalAlignment="Left" Margin="91,10,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="25 " Cursor="Hand" Width="73" RenderTransformOrigin="0.653,0.531" />
+            <RadioButton x:Name="tijera" Content="Tijera" Click="ShowUserSelection"  HorizontalAlignment="Left" Margin="172,10,0,0" VerticalAlignment="Top" ClickMode="Press" FontFamily="Bahnschrift SemiBold Condensed" FontSize="25 " Cursor="Hand" Width="73" RenderTransformOrigin="0.653,0.531" />
+            <Image x:Name="imgUser" HorizontalAlignment="Left" Height="151" Margin="0,93,0,0" VerticalAlignment="Top" Width="388"/>
+            <Button x:Name="closeBtn" Style="{DynamicResource btnStyle}" IsCancel="True" BorderBrush="Transparent" Click="CloseFGameWindow"  Background="Transparent"  Height="68"  VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Margin="325,0,0,0">
+                <DockPanel Height="62" Width="64">
+                    <Image x:Name="lc"    Stretch="UniformToFill"  StretchDirection="Both" Source="Rprincipal/close.png" Cursor="Hand" Width="61" Height="57"/>
+                </DockPanel>
+            </Button>
+        </Grid>
+        <Grid Background="#FF919FD6" Margin="395,205,1,0">
+            <Label x:Name="lblAleat" Content="Control Aleatorio" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" Width="316" Height="47" FontSize="35" FontFamily="Arial Rounded MT Bold"/>
+            <Button x:Name="startBtn" Style="{DynamicResource btnStyle}" IsDefault="True" Content="START" Click="StartGame" HorizontalAlignment="Center" Margin="0,144,0,0" VerticalAlignment="Top" Height="91" Width="384" FontSize="60" FontFamily="Arial Rounded MT Bold">
+                <Button.Background>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FFC1E8E0" Offset="1"/>
+                        <GradientStop Color="White" Offset="0.489"/>
+                        <GradientStop Color="#FFD7EEE9" Offset="0.844"/>
+                        <GradientStop Color="#FFB9C2C0" Offset="0.018"/>
+                    </LinearGradientBrush>
+                </Button.Background>
+                <Button.BorderBrush>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Button.BorderBrush>
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

@@ -1,0 +1,40 @@
+# Archivos y carpetas generados por Visual Studio
+.vs/
+bin/
+obj/
+*.user
+*.suo
+*.pdb
+*.sln
+*.csproj*
+# Archivos generados por Resharper
+_resharper/
+
+# Archivos de compilación y publicación
+*.dll
+*.exe
+*.pdb
+
+# Carpeta de paquetes NuGet
+packages/
+
+# Archivos generados por la compilación .NET Core
+*.deps.json
+*.runtimeconfig.json
+*.runtimeconfig.dev.json
+
+# Archivos generados por el compilador de WPF
+*.baml
+
+# Archivos de configuración de publicación
+Properties/PublishProfiles/
+
+# Carpetas y archivos de respaldo
+Backup*/
+
+# Archivos de registro
+*.log
+
+# Archivos y carpetas generados por el sistema de compilación
+obj/
+bin/
